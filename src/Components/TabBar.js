@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Panel, Tabbar, TabbarItem } from '@vkontakte/vkui'; // Подставьте правильные импорты из VKUI
-import { Icon28MessageOutline, Icon28NewsfeedOutline, Icon28UserCircleOutline } from '@vkontakte/icons'; // Подставьте правильные импорты иконок из VKUI
+import { Icon28NewsfeedOutline, Icon28UserCircleOutline } from '@vkontakte/icons'; // Подставьте правильные импорты иконок из VKUI
 
 const TabbarC = () => {
   const [activeTab, setActiveTab] = useState('main'); // Используем хук useState для отслеживания активной вкладки

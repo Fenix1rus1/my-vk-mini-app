@@ -2,15 +2,17 @@
 
 import React, { useState, useEffect } from 'react';
 import bridge from '@vkontakte/vk-bridge';
-import { View, Panel, PanelHeader, Tabbar, TabbarItem, Calendar, Group, Cell, CardGrid, Card,Button,ButtonGroup,Spacing,Separator, Div} from '@vkontakte/vkui';
-import { Icon28NewsfeedOutline, Icon28UserCircleOutline, Icon28MessageOutline, Icon28WaterDropOutline, Icon28NewsfeedLinesOutline, Icon28LikeOutline } from '@vkontakte/icons';
+import { View, Panel, PanelHeader, Tabbar, TabbarItem, Group, Cell,Button,ButtonGroup,Spacing, Calendar} from '@vkontakte/vkui';
+import { Icon28UserCircleOutline, Icon28WaterDropOutline, Icon28NewsfeedLinesOutline, Icon28LikeOutline } from '@vkontakte/icons';
 import ProfilePanel from './Components/ProfilePanel';
 import ExampleCardGrid from './Components/CardGrid';
+import MedicamentGrid from './Components/MedicamentGrid';
+import './App.css';
 
 const App = () => {
-  const [activePanel, setActivePanel] = useState('main');
+  const [activePanel] = useState('main');
   const [activeTab, setActiveTab] = useState('main');
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [setSelectedDate] = useState(new Date());
 
   useEffect(() => {
     async function fetchData() {
@@ -40,15 +42,15 @@ const App = () => {
             size='undefined'
           />
         </Panel>
-        <Spacing size={12} />
-        <ExampleCardGrid />
         <ButtonGroup style={{paddingLeft:'16px', paddingRight:'16px'}}
         align='center'>
           <Button stretched gap="m" style={{ maxWidth:'312px'}}>
             Записать данные
           </Button>
         </ButtonGroup>
-
+        <Spacing size={12} />
+        <ExampleCardGrid />
+        <MedicamentGrid />
       </Panel>
     </Group>
   );

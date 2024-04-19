@@ -1,6 +1,5 @@
 import React from 'react';
-import { Group, Panel, PanelHeader, Cell, Button } from '@vkontakte/vkui';
-import ExampleCardGrid from './CardGrid';
+import { Group, Panel, PanelHeader, Cell} from '@vkontakte/vkui';
 const ProfilePanel = () => {
   return (
     <Group>
