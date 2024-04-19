@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -27,6 +28,15 @@
 .App-link {
   color: #61dafb;
 }
+@font-face {
+
+	font-family: 'SF Pr Text'; 
+
+	src: local('SF Pr Text'),
+
+		url(/src/Font/SFProText-Bold.ttf); 
+
+}
 
 @keyframes App-logo-spin {
   from {
@@ -35,4 +45,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+.SFPro{
+  font-family: 'SF Pr Text';
 }

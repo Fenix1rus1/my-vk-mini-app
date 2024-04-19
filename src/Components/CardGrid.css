@@ -1,0 +1,19 @@
+.CardGrid{
+    height: 150px;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Card{
+    height:125px ;
+
+    background-image: url(../card1.png);
+    width: 101px;
+}
+.textdiv{
+    margin: 5px;
+    font-size: 12px;
+    color:white;
+    font-family: var(--vkui--font_family_accent);
+    
+}
