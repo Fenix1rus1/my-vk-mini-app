@@ -5,18 +5,17 @@ import './CardGrid.css';
 const ExampleCardGrid = () => {
   return (
     <>
-      <Spacing size={12} />
       <Separator />
       <Spacing size={12} />
       <CardGrid className='CardGrid'>
-        <Card className='Card SFPro' size="l">
-          <div className='textdiv'>Как успокоить свою тревожность?</div>
+        <Card id='card_1' className='Card SFPro' size="l">
+          <div className='textdiv SFPro'>Как успокоить свою тревожность?</div>
         </Card>
-        <Card className='Card SFPro' size="l">
-          <div className='textdiv'>Card 2 C869ontent</div>
+        <Card id='card_2' className='Card SFPro' size="l">
+          <div className='textdiv SFPro'>Как часто надо проверять свое здоровье?</div>
         </Card>
-        <Card className='Card SFPro' size="l">
-          <div className='textdiv SFPro'>Card 3 Content</div>
+        <Card id='card_3' className='Card SFPro' size="l">
+          <div className='textdiv SFPro'>Что помогает для нормализации давления</div>
         </Card>
       </CardGrid>
       <Spacing size={12} />

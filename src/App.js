@@ -1,18 +1,22 @@
-// src/App.js
-
+//-------------------------------------------------------------
 import React, { useState, useEffect } from 'react';
+//-------------------------------------------------------------
 import bridge from '@vkontakte/vk-bridge';
-import { View, Panel, PanelHeader, Tabbar, TabbarItem, Group, Cell,Button,ButtonGroup,Spacing, Calendar} from '@vkontakte/vkui';
+import { View, Gallery, Panel, PanelHeader, Tabbar, TabbarItem, Group, Cell,Spacing,SplitLayout} from '@vkontakte/vkui';
 import { Icon28UserCircleOutline, Icon28WaterDropOutline, Icon28NewsfeedLinesOutline, Icon28LikeOutline } from '@vkontakte/icons';
+//-------------------------------------------------------------
 import ProfilePanel from './Components/ProfilePanel';
 import ExampleCardGrid from './Components/CardGrid';
 import MedicamentGrid from './Components/MedicamentGrid';
+import CalendarComp from './Components/Calendar';
+//-------------------------------------------------------------
 import './App.css';
+//-------------------------------------------------------------
+
 
 const App = () => {
   const [activePanel] = useState('main');
   const [activeTab, setActiveTab] = useState('main');
-  const [setSelectedDate] = useState(new Date());
 
   useEffect(() => {
     async function fetchData() {
@@ -24,60 +28,47 @@ const App = () => {
     }
     fetchData();
   }, []);
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-    console.log('Выбранная дата:', date);
-  };
-
+  //-------------------------------------------------------------
   const renderMain = () => (
     <Group>
       <Panel id="main">
-        
         <PanelHeader style={{ textAlign: 'center' }}>Главная</PanelHeader>
-        <Panel id='calendar'style={{width:'100%', display:'block'}}>
-          <Calendar style={{marginLeft:'auto', marginRight:'auto'}}
-            onSelect={handleDateChange}
-            weekStartsOn={1}
-            size='undefined'
-          />
-        </Panel>
-        <ButtonGroup style={{paddingLeft:'16px', paddingRight:'16px'}}
-        align='center'>
-          <Button stretched gap="m" style={{ maxWidth:'312px'}}>
-            Записать данные
-          </Button>
-        </ButtonGroup>
+        <Spacing />
+        <CalendarComp />
         <Spacing size={12} />
         <ExampleCardGrid />
         <MedicamentGrid />
+        <div className='empty_div' style={{width:'100%', height:'45px'}} />
       </Panel>
     </Group>
   );
-
+  //-------------------------------------------------------------
   const renderProfile = () => (
     <View activePanel="profile">
       <ProfilePanel id="profile" />
     </View>
   );
-
+  //-------------------------------------------------------------
   const renderMessenger = () => (
     <Group>
       <Panel id="messenger">
-        <PanelHeader style={{ textAlign: 'center' }}>Давление</PanelHeader>
-        <Cell>Здесь будет содержимое Давление.</Cell>
+        <SplitLayout>
+          <Cell>Здесь будет содержимое Давление.</Cell>
+            <PanelHeader style={{ textAlign: 'center' }}>Давление</PanelHeader>
+          </SplitLayout>
       </Panel>
     </Group>
   );
-
+  //-------------------------------------------------------------
   const renderGlukoz = () => (
     <Group>
-      <Panel id="glukoz">
+      <SplitLayout id="glukoz">
         <PanelHeader style={{ textAlign: 'center' }}>Глюкоза</PanelHeader>
         <Cell>Здесь будет содержимое Глюкозы.</Cell>
-      </Panel>
+      </SplitLayout>
     </Group>
   );
+  //-------------------------------------------------------------
   return (
     <View activePanel={activePanel}>
       <Panel id="main">
@@ -85,7 +76,6 @@ const App = () => {
         {activeTab === 'main' && renderMain()}
         {activeTab === 'profile' && renderProfile()}
         {activeTab === 'messenger' && renderMessenger()}
-        
         <Tabbar>
         <TabbarItem onClick={() => setActiveTab('glukoz')} selected={activeTab === 'glukoz'} text="Глюкоза">
           <Icon28WaterDropOutline />
@@ -104,5 +94,5 @@ const App = () => {
     </View>
   );
 };
-
+//-------------------------------------------------------------
 export default App;
